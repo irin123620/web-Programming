@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calender</title>
+<style>
+body{
+font-family:Arial;
+}
+input
+{
+margin:5px;
+}
+</style>
+</head>
+<body>
+<script>
+function validateform()
+{
+var name=document.myf.name.value;
+var email=document.myf.email.value;
+var pass=document.myf.pass.value;
+var cpass=document.myf.cpass.value;
+var mb=document.myf.mb.value;
+if(name.length < 3)
+{
+alert("name must contain at least 3 characherts");
+return false;
+}
+if(pass.length < 6)
+{
+alert("contain atleast 6 characters");
+return false;
+}
+if(!/[A-Z]/.test(pass))
+{
+alert("A capital letter needed");
+return false;
+}
+if(!email.endsWith("@gmail.com"))
+{
+alert("Ends with @gmail.com");
+return false;
+}
+if(pass!=cpass)
+{
+alert("pass words do not match");
+return false;
+}
+if(mb.length !=10 || isNaN(mb))
+{
+alert("10 digits");
+return false;
+}
+alert("Suceedully***");
+return true;
+}
+</script>
+<form name="myf" onsubmit="return validateform()">
+name:<input type="text" name="name" required><br>
+Email:<input type="email" name="email" required><br>
+password:<input type="password" name="pass" required><br>
+Confirm Password:<input type="password" name="cpass"><br>
+Number:<input type="text" name="mb"><br>
+<input type="submit" value="Submit"><br>
+</form>
+</body>
+</html>
+
